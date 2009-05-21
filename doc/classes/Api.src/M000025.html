@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>help (Api)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File api.rb, line 302</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">help</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Polecenie argumenty [opcjonalne argumenty] - opis:&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;help                      - wyswietla ta pomoc&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;wiadomosc uzytkownik tresc - wysyla pojedyncza wiadomosc do uzytkownika&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;chat uzytkownik           - tworzy rozmowe z uzytkownikiem, po wydaniu polecenia wystarczy pisac, wszystko co zostanie napisane bedzie wyslane do uzytkownika&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;!anulujchat               - wychodzi z trybu \&quot;chat\&quot;&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;dodaj uzytkownik          - dodaje uzytkownika do listy znajomych&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;usun uzytkownik           - usuwa uzytkownika z listy znajomych&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;akceptuj uzytkownik       - akceptuje prosbe uzytkownika o subskrypcje&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;odrzuc uzytkownik         - odmawia subskrypcji uzytkownikowi&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;lista                      - pokazuje liste znajomych&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;status nowy_status [opis]  - ustawia status na podany wraz z opisem. Lista dostepnych statusow: &quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\tdostepny     - Dostepny&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\tpogadam      - Pogadam&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\tnp           - Nie przeszadzac&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\tzw           - Zaraz wracam&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\tnieosiagalny - Nieosiagalny&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;koniec                    - wychodzi z programu&quot;</span>
+
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

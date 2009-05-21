@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parsuj (Api)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File api.rb, line 94</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parsuj</span>(<span class="ruby-identifier">kom</span>)
+        <span class="ruby-identifier">slowa</span>=<span class="ruby-identifier">kom</span>.<span class="ruby-identifier">split</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">==</span><span class="ruby-value">0</span> <span class="ruby-keyword kw">then</span> 
+                <span class="ruby-identifier">blad</span>
+                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">slowa</span>[<span class="ruby-value">0</span>]
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;help&quot;</span><span class="ruby-operator">:</span> <span class="ruby-identifier">help</span>
+                                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;dodaj&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                              <span class="ruby-keyword kw">end</span>
+                              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">==</span><span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                <span class="ruby-identifier">dodaj</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>])
+                              <span class="ruby-keyword kw">else</span>
+                                <span class="ruby-identifier">blad</span>
+                              <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;usun&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                <span class="ruby-keyword kw">return</span>  <span class="ruby-keyword kw">true</span>
+                             <span class="ruby-keyword kw">end</span>
+                             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">==</span><span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                <span class="ruby-identifier">usun</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>])
+                             <span class="ruby-keyword kw">else</span>
+                                <span class="ruby-identifier">blad</span>
+                             <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;lista&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                <span class="ruby-keyword kw">return</span>  <span class="ruby-keyword kw">true</span>
+                              <span class="ruby-keyword kw">end</span>
+                              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span>
+                                <span class="ruby-identifier">lista</span>
+                              <span class="ruby-keyword kw">else</span>
+                                <span class="ruby-identifier">blad</span>
+                              <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;historia&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                   <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                   <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                                      <span class="ruby-keyword kw">end</span>
+                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">==</span><span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">historia</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>])
+                                 <span class="ruby-keyword kw">else</span>
+                                        <span class="ruby-identifier">blad</span>
+                                 <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;chat&quot;</span><span class="ruby-operator">:</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                              <span class="ruby-keyword kw">end</span>
+                              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">==</span><span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Nie mozna zaczac nowego czatu prowadzac inny, najpierw zakoncz obecny&quot;</span>
+                                        <span class="ruby-keyword kw">return</span>     <span class="ruby-keyword kw">true</span>
+                                <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-ivar">@chat</span>=<span class="ruby-value">1</span>                     
+                                <span class="ruby-identifier">chat</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>])
+                              <span class="ruby-keyword kw">else</span>
+                                <span class="ruby-identifier">blad</span>
+                              <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;wiadomosc&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                        <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                                       <span class="ruby-keyword kw">end</span>
+                                  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">&gt;</span><span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">wiadomosc</span>(<span class="ruby-identifier">slowa</span>)
+                                       <span class="ruby-keyword kw">else</span>
+                                        <span class="ruby-identifier">blad</span>
+                                       <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;!anulujchat&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span>  <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">0</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">blad</span>
+                                    <span class="ruby-keyword kw">else</span>
+                                        <span class="ruby-ivar">@chat</span>=<span class="ruby-value">0</span>
+                                    <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;koniec&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                        <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                               <span class="ruby-keyword kw">end</span>
+                               <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;status&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                        <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                               <span class="ruby-keyword kw">end</span>
+                               <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">&lt;</span><span class="ruby-value">2</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">&gt;</span><span class="ruby-value">3</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">blad</span>
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                               <span class="ruby-keyword kw">end</span>
+                               <span class="ruby-identifier">status</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">slowa</span>[<span class="ruby-value">2</span>])
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;akceptuj&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                        <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length!</span>=<span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">blad</span>
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                                   <span class="ruby-keyword kw">end</span>
+                                   <span class="ruby-identifier">akceptuj</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>])
+                <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;odrzuc&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-keyword kw">then</span> 
+                                        <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>) 
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">slowa</span>.<span class="ruby-identifier">length!</span>=<span class="ruby-value">2</span> <span class="ruby-keyword kw">then</span>
+                                        <span class="ruby-identifier">blad</span>
+                                        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+                                   <span class="ruby-keyword kw">end</span>
+                                   <span class="ruby-identifier">odrzuc</span>(<span class="ruby-identifier">slowa</span>[<span class="ruby-value">1</span>])
+                <span class="ruby-keyword kw">else</span>
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@chat</span><span class="ruby-operator">==</span><span class="ruby-value">1</span>
+                                <span class="ruby-identifier">wyslijchat</span>(<span class="ruby-identifier">slowa</span>)
+                        <span class="ruby-keyword kw">else</span>
+                                <span class="ruby-identifier">blad</span>
+                        <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

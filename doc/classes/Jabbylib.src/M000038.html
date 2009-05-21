@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>usun_z_listy (Jabbylib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File jabbylib.rb, line 134</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">usun_z_listy</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">jid</span>)
+        <span class="ruby-identifier">kontakty</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">jid</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">usun</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">usun</span>.<span class="ruby-identifier">usun_subskrypcje</span>
+                <span class="ruby-identifier">req</span>=<span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new_rosterset</span>
+                <span class="ruby-identifier">req</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Roster</span><span class="ruby-operator">::</span><span class="ruby-constant">RosterItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">usun</span>.<span class="ruby-identifier">jid</span>,<span class="ruby-keyword kw">nil</span>,<span class="ruby-identifier">:remove</span>))
+                <span class="ruby-identifier">wyslij</span>(<span class="ruby-identifier">req</span>)
+        <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

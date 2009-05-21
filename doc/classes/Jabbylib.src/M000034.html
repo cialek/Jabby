@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>zmiany_statusow (Jabbylib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File jabbylib.rb, line 101</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">zmiany_statusow</span>
+        <span class="ruby-identifier">statusy</span>=[]
+        <span class="ruby-keyword kw">while</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@kolejka_statusow</span>.<span class="ruby-identifier">empty?</span>)
+                <span class="ruby-identifier">status</span>=<span class="ruby-ivar">@kolejka_statusow</span>.<span class="ruby-identifier">pop</span>(<span class="ruby-keyword kw">true</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+                <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">nil?</span>
+                <span class="ruby-identifier">statusy</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">status</span>
+                <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">status</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">statusy</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

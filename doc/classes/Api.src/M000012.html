@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>odbierz (Api)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File api.rb, line 52</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">odbierz</span>
+        <span class="ruby-identifier">wiadomosci</span>=<span class="ruby-ivar">@jabber</span>.<span class="ruby-identifier">otrzymane_wiadomosci</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">wiadomosci</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">then</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\nOtrzymane wiadomosci: &quot;</span>
+                <span class="ruby-identifier">wiadomosci</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">wiadomosc</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{wiadomosc.to}:\n#{wiadomosc.body}&quot;</span>
+                        <span class="ruby-identifier">zapisz_historie</span>(<span class="ruby-identifier">wiadomosc</span>.<span class="ruby-identifier">from</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>)[<span class="ruby-value">0</span>],<span class="ruby-node">&quot;#{wiadomosc.from.to_s.split('/')[0]}:\n#{wiadomosc.body}&quot;</span>)
+                <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">statusy</span>=<span class="ruby-ivar">@jabber</span>.<span class="ruby-identifier">zmiany_statusow</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">statusy</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">then</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\nZmiany statusow:&quot;</span>
+                <span class="ruby-identifier">statusy</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>                   
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Znajomy #{s.from.to_s.split('/')[0]} zmienil status na #{statusParse(s.show)}#{s.status ? &quot;z opisem \&quot;#{s.status}\&quot;&quot; : &quot;&quot;}&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">sub</span>=<span class="ruby-ivar">@jabber</span>.<span class="ruby-identifier">prosby_o_subskrypcje</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sub</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">then</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\nProsby o subskrypcje:&quot;</span>
+                <span class="ruby-identifier">sub</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{s.from} prosi o subskrypcje&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">puts</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
